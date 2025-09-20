@@ -1,5 +1,3 @@
-var DEBUG = true;
-
 async function main() {
 	splashscreen.show();
 	
