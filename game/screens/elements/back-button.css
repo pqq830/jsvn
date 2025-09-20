@@ -1,0 +1,15 @@
+button.back.button {
+	width: 48px;
+	height: 48px;
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin-inline: 1rem;
+	
+	font-size: 48px;
+	color: inherit;
+}
+
+button.back.button::before {
+	content: "🡠";
+}

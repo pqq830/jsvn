@@ -1,0 +1,1 @@
+var prompt = new GameObject({ value: "" });

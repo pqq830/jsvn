@@ -1,0 +1,28 @@
+:where(.start.screen) {
+	background-image: url(../images/ch1/i1_18_6.webp);
+	background-size: cover;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.start.screen :where(button) {
+	width: 200px;
+	height: 48px;
+	border: none;
+	outline: none;
+	background: var(--ui-button-background);
+	color: var(--ui-button-color);
+	font-family: var(--ui-font-family);
+	font-size: var(--ui-font-size);
+	font-weight: var(--ui-font-weight);
+}
+
+.start.screen button:where(:hover),
+.start.screen button:where(:focus) {
+	color: var(--ui-button-hover-color);
+	background: var(--ui-button-hover-background);
+}

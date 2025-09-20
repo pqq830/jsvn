@@ -1,0 +1,37 @@
+.page-viewer {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.page-viewer > .pages {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.page-viewer > .pages > * {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	
+	flex-shrink: 0;
+	display: grid;
+	grid-template-rows: min-content 1fr;
+}
+
+.page-viewer > .pages > *.visible {
+	opacity: 1;
+	z-index: 1;
+}
+
+.page-viewer > .pages > *:not(.visible) {
+	opacity: 0;
+	z-index: -1;
+}
+
+.page-viewer > .pages > * > h2 {
+	text-align: center;
+}

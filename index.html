@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Engine Styles -->
+	<link rel="stylesheet" type="text/css" href="./jsvn/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="./jsvn/styles/themes.css">
+	
+	<!-- Engine Classes -->
+	<script src="./jsvn/classes/Command.js"></script>
+	<script src="./jsvn/classes/BranchingCommand.js"></script>
+	<script src="./jsvn/classes/GameEvent.js"></script>
+	<script src="./jsvn/classes/String.js"></script>
+	<script src="./jsvn/classes/GameObject.js"></script>
+	<script src="./jsvn/classes/Screen.js"></script>
+	<script src="./jsvn/classes/Binding.js"></script>
+	
+	<!-- Engine Singeltons -->
+	<script src="./jsvn/commands.js"></script>
+	<script src="./jsvn/parser.js"></script>
+	<script src="./jsvn/images.js"></script>
+	<script src="./jsvn/videos.js"></script>
+	<script src="./jsvn/sounds.js"></script>
+	<script src="./jsvn/gameobjects.js"></script>
+	<script src="./jsvn/prompt.js"></script>
+	<script src="./jsvn/game.js"></script>
+	<script src="./jsvn/main.js"></script>
+	<script src="./jsvn/bindings.js"></script>
+	<script src="./jsvn/utils.js"></script>
+	
+	<!-- Engine Screens -->
+	<link rel="stylesheet" type="text/css" href="./jsvn/screens/splashscreen.css">
+	<script src="./jsvn/screens/splashscreen.js" defer></script>
+	
+	<!-- Game Styles -->
+	<link rel="stylesheet" type="text/css" href="./game/style.css">
+	<link rel="stylesheet" type="text/css" href="./game/animations.css">
+	<link rel="stylesheet" type="text/css" href="./game/characters.css">
+	
+	<!-- Game Screens -->
+	<link rel="stylesheet" type="text/css" href="./game/screens/startscreen.css">
+	<script src="./game/screens/startscreen.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="./game/screens/gamescreen.css">
+	<script src="./game/screens/gamescreen.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="./game/screens/loadscreen.css">
+	<script src="./game/screens/loadscreen.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="./game/screens/savescreen.css">
+	<script src="./game/screens/savescreen.js" defer></script>	
+	<link rel="stylesheet" type="text/css" href="./game/screens/settingsscreen.css">
+	<script src="./game/screens/settingsscreen.js" defer></script>
+	
+	<link rel="stylesheet" type="text/css" href="./game/screens/elements/back-button.css">
+	<link rel="stylesheet" type="text/css" href="./game/screens/elements/page-viewer.css">
+	
+	<!-- Game Specifics -->
+	<script src="./game/config.js"></script>
+	<script src="./game/settings.js"></script>
+	<script src="./game/script.js"></script>
+	
+
+	
+	<title>Untitled</title>
+</head>
+<body  class="theme-starfield">
+
+<main>
+	<!-- Splash Screen -->
+	<section class="screen splash">
+		<div class="layout">
+		<h1>js<strong>VN</strong> <small>1.0</small></h1>
+		<div class="status">
+			<div id="message"></div>
+			<div id="progressbar">
+				<div id="progress"></div>
+			</div>
+		</div>
+	</div>
+	</section>
+	
+	<!-- Start Screen -->
+	<section class="screen start">
+		<button onclick="gamescreen.show()">Start</button>
+		<button onclick="loadscreen.show()">Load</button>
+		<button onclick="savescreen.show()">Save</button>
+		<button onclick="settingsscreen.show()">Settings</button>
+	</section>
+	
+	<!-- Game Screen -->
+	<section class="screen game">
+		<!-- Bottom Layer -->
+		<div class="layer bottom">
+			<div class="background visible"></div>
+		</div>
+		
+		<!-- Character Layer -->
+		<div class="layer character columns-3">
+			<div id="girl" class="character"></div>
+		</div>
+		
+		<!-- Dialogue Layer -->
+		<div class="layer dialogue">
+			<div class="dialogue-box">
+				<h2 class="who"></h2>
+				<p class="what"></p>
+			</div>		
+			<div class="dialogue-menu"></div>
+			<div class="dialogue-prompt">
+				<h2 class="query"></h2>
+				<input class="input" type="text">
+			</div>
+		</div>
+		
+		<!-- Game UI Layer (for stats, scores, buttons, etc...) -->
+		<div class="layer ui">
+			<!--<div>Score: <input type="number" data-bind="value: player.score"></div>-->
+			<button id="btn_menu" aria-label="Menu"></button>			
+			<button id="btn_skip" aria-label="Toggle Skip" aria-checked="false" role="switch">&#11208;&#11208;</button>
+			<button id="btn_auto" aria-label="Toggle Auto" aria-checked="false" role="switch">&#11208;</button>
+		</div>
+		
+		<!-- Top Layer -->
+		<div class="layer top">
+			<div class='heading'></div>
+		</div>
+	</section>
+	
+	<!-- load screen -->
+	<section class="screen load">
+		<div class="background"></div>
+		<div class="content">
+			<header>
+				<nav>
+					<button class="back button" onclick="loadscreen.back()" aria-label="Back"></button>
+				</nav>
+				<h1>Load</h1>
+			</header>
+			<article class="page-viewer">
+				<div class="pages">
+					<div id="load-page-a" class="visible">
+						<h2>Auto Saves</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>
+					</div>
+					<div id="load-page-q">
+						<h2>Quick Saves</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>
+					</div>
+					<div id="load-page-1">
+						<h2>Page 1</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>
+					</div>
+					<div id="load-page-2">
+						<h2>Page 2</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>			
+					</div>
+					<div id="load-page-3">
+						<h2>Page 3</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>			
+					</div>
+					<div id="load-page-4">
+						<h2>Page 4</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>				
+					</div>
+					<div id="load-page-5">
+						<h2>Page 5</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="load-page-6">
+						<h2>Page 6</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="load-page-7">
+						<h2>Page 7</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="load-page-8">
+						<h2>Page 8</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="load-page-9">
+						<h2>Page 9</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+				</div>
+			</article>
+			<footer>
+				<button onclick="loadscreen.showPage('a')" aria-label="Auto Saves">A</button>
+				<button onclick="loadscreen.showPage('q')" aria-label="Quick Saves">Q</button>
+				<button onclick="loadscreen.showPage(1)">1</button>
+				<button onclick="loadscreen.showPage(2)">2</button>
+				<button onclick="loadscreen.showPage(3)">3</button>
+				<button onclick="loadscreen.showPage(4)">4</button>
+				<button onclick="loadscreen.showPage(5)">5</button>
+				<button onclick="loadscreen.showPage(6)">6</button>
+				<button onclick="loadscreen.showPage(7)">7</button>
+				<button onclick="loadscreen.showPage(8)">8</button>
+				<button onclick="loadscreen.showPage(9)">9</button>
+			</footer>
+		</div>
+	</section>
+	
+	<!-- Save screen -->
+	<section class="screen save">
+		<div class="background"></div>
+		<div class="content">
+			<header>
+				<nav>
+					<button class="back button" onclick="savescreen.back()" aria-label="Back"></button>
+				</nav>
+				<h1>Save</h1>
+			</header>
+			<article class="page-viewer">
+				<div class="pages">
+					<div id="save-page-1" class="visible">
+						<h2>Page 1</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>
+					</div>
+					<div id="save-page-2">
+						<h2>Page 2</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>			
+					</div>
+					<div id="save-page-3">
+						<h2>Page 3</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>			
+					</div>
+					<div id="save-page-4">
+						<h2>Page 4</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>				
+					</div>
+					<div id="save-page-5">
+						<h2>Page 5</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="save-page-6">
+						<h2>Page 6</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="save-page-7">
+						<h2>Page 7</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="save-page-8">
+						<h2>Page 8</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+					<div id="save-page-9">
+						<h2>Page 9</h2>
+						<div class="thumbnails">
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+							<button><label>empty</label></button><button><label>empty</label></button><button><label>empty</label></button>
+						</div>					
+					</div>
+				</div>
+			</article>
+			<footer>
+				<button onclick="savescreen.showPage(1)">1</button>
+				<button onclick="savescreen.showPage(2)">2</button>
+				<button onclick="savescreen.showPage(3)">3</button>
+				<button onclick="savescreen.showPage(4)">4</button>
+				<button onclick="savescreen.showPage(5)">5</button>
+				<button onclick="savescreen.showPage(6)">6</button>
+				<button onclick="savescreen.showPage(7)">7</button>
+				<button onclick="savescreen.showPage(8)">8</button>
+				<button onclick="savescreen.showPage(9)">9</button>
+			</footer>
+		</div>
+	</section>
+	
+	<!-- Settings screen -->
+	<section class="screen settings">
+		<div class="background"></div>
+		<div class="content">
+			<header>
+				<nav>
+					<button class="back button" onclick="settingsscreen.back()" aria-label="Back"></button>
+				</nav>
+				<h1>Settings</h1>
+			</header>
+			<article>
+				
+			</article>
+		</div>
+	</section>	
+</main>
+
+</body>
+</html>

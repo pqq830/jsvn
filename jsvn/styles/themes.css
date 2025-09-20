@@ -1,0 +1,128 @@
+/**
+ * Simple Fade to Black Theme
+**/
+.theme-fade-to-black .game.screen > .dialogue.layer :where(.dialogue-box),
+.theme-fade-to-black .game.screen > .dialogue.layer :where(.dialogue-prompt) {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, .5), black);
+}
+
+/**
+ * Final Fantasy Theme 
+**/
+.theme-final-fantasy {
+	--font-family: monospace;
+	--font-weight: bold;
+	--font-size: 1.5rem;
+	
+	--ui-font-family: monospace;
+	--ui-font-weight: bold;
+	--ui-font-size: 1.rem;
+}
+
+.theme-final-fantasy .game.screen > .dialogue.layer :where(.dialogue-box),
+.theme-final-fantasy .game.screen > .dialogue.layer :where(.dialogue-prompt),
+.theme-final-fantasy .game.screen > .dialogue.layer :where(.dialogue-menu) {
+	background: linear-gradient(to bottom, #484890, #282870);
+	
+	width: auto;
+	left: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+	
+	border-radius: 10px;
+	box-shadow: -4px  0px 0 #787878, 0px -4px 0 #787878,
+	            -4px -4px 0 #787878,
+	            -6px  0px 0 #c0d8d8, 0px -6px 0 #c0d8d8,
+				-6px -6px 0 #c0d8d8,
+				 4px  0px 0 #787878, 0px  4px 0 #787878,
+	             6px  0px 0 #282828, 0px  6px 0 #282828;
+	border: 2px solid #283030;
+	
+	text-shadow: 2px 2px 0 black;
+	/*
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 1.5rem;*/
+}
+
+.theme-final-fantasy .game.screen > .dialogue.layer :where(.dialogue-menu) {
+	left: auto;
+	right: auto;
+	bottom: auto;
+	
+	width: auto;
+	height: auto;
+	margin: auto;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+}
+
+.theme-final-fantasy .game.screen > .dialogue.layer .dialogue-menu :where(.item) {
+	background: none;
+	text-shadow: inherit;
+	text-align: left;
+	padding-left: 64px;
+	outline: none;
+}
+
+
+.theme-final-fantasy .game.screen > .dialogue.layer .dialogue-menu :where(.item:hover)::before,
+.theme-final-fantasy .game.screen > .dialogue.layer .dialogue-menu :where(.item:focus)::before {
+	content: "";
+	display: block;
+	position: absolute;
+	translate: calc(-32px - 1rem);
+	width: 32px;
+	height: 32px;
+	background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMzIiCiAgIGhlaWdodD0iMzIiCiAgIHZpZXdCb3g9IjAgMCA4LjQ2NjY2NjUgOC40NjY2NjY2IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcxIgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzCiAgICAgaWQ9ImRlZnMxIiAvPjxnCiAgICAgaWQ9ImxheWVyMiIKICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmUiPjxwYXRoCiAgICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmU7ZmlsbDojMDAwMDAwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgIGQ9Ik0gMCw1LjgyMDgzMzMgViAyLjExNjY2NjcgSCAwLjUyOTE2NjY3IFYgMS41ODc1IEggMS4wNTgzMzMzIFYgMi4xMTY2NjY3IEggMS41ODc1IFYgMS4wNTgzMzMzIEggMi4xMTY2NjY3IFYgMC41MjkxNjY2NyBIIDIuNjQ1ODMzMyBWIDAgSCA0Ljc2MjUgViAwLjUyOTE2NjY3IEggNS4yOTE2NjY3IFYgMS4wNTgzMzMzIEggNy40MDgzMzMzIFYgMS41ODc1IEggNy45Mzc1IFYgMi4xMTY2NjY3IEggOC40NjY2NjY3IFYgMi42NDU4MzMzIEggNy45Mzc1IFYgMy4xNzUgSCA3LjQwODMzMzMgTCA3LjM5MDYwMjIsMy43MDY0OTM0IDYuMzY3NzMxMSwzLjcwMTgzOTkgNi4zNSw0Ljc2MjUgSCA1LjgyMDgzMzMgViA1LjgyMDgzMzMgSCA1LjI5MTY2NjcgViA2LjM1IEggNy40MDgzMzMzIFYgNi44NzkxNjY3IEggOC40NjY2NjY3IFYgNy40MDgzMzMzIEggNy45Mzc1IFYgNy45Mzc1IEggNC43NjI1IFYgOC40NjY2NjY3IEggMS41ODc1IFYgNy45Mzc1IEggMCBWIDYuODc5MTY2NyBIIDEuNTg3NSBWIDUuODIwODMzMyBIIDEuMDU4MzMzMyBWIDYuMzUgSCAwLjUyOTE2NjY3IFYgNS44MjA4MzMzIFoiCiAgICAgICBpZD0icGF0aDIiIC8+PHBhdGgKICAgICAgIHN0eWxlPSJkaXNwbGF5OmlubGluZTtmaWxsOiM3ODk4OTg7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzIgogICAgICAgZD0iTSAwLjUyOTE2NjY3LDUuODIwODMzMyBWIDIuMTE2NjY2NyBsIDAuNTI5MTY2NjMsMy43ZS02IFYgMi42NDU4MzMzIEggMS41ODc1IFYgMi4xMTY2NjY3IEggMi4xMTY2NjY3IFYgMS4wNTgzMzMzIGggMC41MjkxNjY2IGwgLTJlLTcsLTAuNTI5MTY2NTMgSCA0Ljc2MjUgViAxLjA1ODMzMzMgSCA0LjIzMzMzMzMgViAxLjU4NzUgSCA0Ljc2MjUgViAxLjA1ODMzMzMgSCA1LjI5MTY2NjcgViAxLjU4NzUgSCA3LjQwODMzMzMgViAyLjExNjY2NjcgSCA3LjkzNzUgViAyLjY0NTgzMzMgSCA3LjQwODMzMzMgViAzLjE3NSBIIDUuMjkxNjY2NyBWIDMuNzA0MTY2NyBIIDUuODIwODMzMyBWIDQuNzYyNSBIIDUuMjkxNjY2NyBWIDUuODIwODMzMyBIIDQuNzYyNSBWIDYuMzUgSCAyLjExNjY2NjcgViA1LjgyMDgzMzMgSCAxLjU4NzUgViA1LjI5MTY2NjcgSCAxLjA1ODMzMzMgdiAwLjUyOTE2NjYgeiIKICAgICAgIGlkPSJwYXRoMyIgLz48cGF0aAogICAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lO2ZpbGw6I2EwYzBjMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4yNjQ1ODMiCiAgICAgICBkPSJNIDEuMDU4MzMzMyw0Ljc2MjUgSCAwLjUyOTE2NjY3IFYgNC4yMzMzMzMzIEggMS4wNTgzMzMzIFYgMy4xNzUgSCAxLjU4NzUgViAyLjY0NTgzMzMgSCAyLjExNjY2NjcgViAxLjU4NzUgSCAyLjY0NTgzMzMgViAwLjUyOTE2NjY3IEggMy4xNzUgViAxLjA1ODMzMzMgSCA0LjIzMzMzMzMgViAwLjUyOTE2NjY3IEggNC43NjI1IFYgMS4wNTgzMzMzIEggMy43MDQxNjY3IFYgMS41ODc1IEggNC43NjI1IDcuNDA4MzMzMyBWIDIuMTE2NjY2NyBIIDUuMjkxNjY2NyBWIDMuMTc1IEggNC43NjI1IFYgMy43MDQxNjY3IEggNS4yOTE2NjY3IDUuODIwODMzMyBWIDQuMjMzMzMzMyBIIDQuNzYyNSBWIDQuNzYyNSBIIDIuMTE2NjY2NyBWIDQuMjMzMzMzMyBIIDEuNTg3NSBWIDMuNzA0MTY2NyBIIDEuMDU4MzMzMyBaIgogICAgICAgaWQ9InBhdGg0IiAvPjxwYXRoCiAgICAgICBzdHlsZT0iZGlzcGxheTppbmxpbmU7ZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjI2NDU4MyIKICAgICAgIGQ9Im0gMC41MjkxNjY2Nyw0LjIzMzMzMzMgdiAtMS41ODc1IEggMS4wNTgzMzMzIHYgMS41ODc1IHoiCiAgICAgICBpZD0icGF0aDUiIC8+PHBhdGgKICAgICAgIHN0eWxlPSJkaXNwbGF5OmlubGluZTtmaWxsOiNmZmZmZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzIgogICAgICAgZD0iTSAxLjU4NzUsMi42NDU4MzMzIFYgMi4xMTY2NjY3IEggMi42NDU4MzMzIFYgMS4wNTgzMzMzIEggMy4xNzUgViAwLjUyOTE2NjY3IEggNC4yMzMzMzMzIFYgMS4wNTgzMzMzIEggMy4xNzUgViAxLjU4NzUgaCAxLjA1ODMzMzMgdiAwLjUyOTE2NjcgbCAzLjE3NTAwMDIsMmUtNyBWIDIuNjQ1ODMzMyBIIDQuNzYyNSBWIDMuMTc1IEggMi42NDU4MzMzIFYgMi42NDU4MzMzIFoiCiAgICAgICBpZD0icGF0aDYiIC8+PHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzIgogICAgICAgZD0iTSA0Ljc2MjUsMS4wNTgzMzMzIEggNS4yOTE2NjY3IFYgMS41ODc1IEggNC43NjI1IFoiCiAgICAgICBpZD0icGF0aDciIC8+PC9nPjwvc3ZnPgo=");
+}
+
+/**
+ * Starfield Theme
+**/
+.theme-starfield {
+	--ui-font-family: Arial;
+	--ui-font-size: 1.25rem;
+	
+	--font-size: 1.25rem;
+	--font-family: Arial;
+	--font-weight: 100;
+	--font-style: normal;
+	
+	--dialogue-box-color: #f4f4f4;
+	--dialogue-menu-item-color: #f4f4f4;
+	--button-color: #f4f4f4;
+	
+	--dialogue-menu-item-hover-color: #444;
+	--dialogue-menu-item-hover-background: #b7b7b7;
+	
+	--dialogue-font-size: 2rem;
+}
+
+.theme-starfield .game.screen > .dialogue.layer :where(.dialogue-box) {
+	background: none;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	height: auto;
+	bottom: 20%;
+}
+
+.theme-starfield .game.screen > .dialogue.layer :where(.dialogue-box .who),
+.theme-starfield .game.screen > .dialogue.layer :where(.dialogue-box .what) {
+	background: rgba(0, 0, 0, .75);
+	display: inline;
+}
+
+.theme-starfield .game.screen > .dialogue.layer :where(.dialogue-box .who:not(:empty)) {
+	padding: .5rem 0rem .5rem 1rem !important;
+}
+
+.theme-starfield .game.screen > .dialogue.layer :where(.dialogue-box .who:not(:empty))::after {
+	content: ":";
+}
+
+.theme-starfield .game.screen > .dialogue.layer :where(.dialogue-box .what) {
+	padding: .5rem 1rem .5rem .5rem !important;
+}

@@ -1,0 +1,102 @@
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes from-bottom {
+	from { transform: translateY(100%); }
+	to { transform: translateY(0%); }
+}
+
+@keyframes to-bottom {
+	from { transform: translateY(0%); }
+	to { transform: translateY(100%); }
+}
+
+@keyframes enter-from-left {
+	from { transform: translateX(-100%); }
+	to { transform: translateX(0%); }
+}
+
+@keyframes exit-to-left {
+	from { transform: translateX(0%); }
+	to { transform: translateX(-100%); }
+}
+
+@keyframes enter-from-right {
+	from { transform: translateX(100%); }
+	to { transform: translateX(0%); }
+}
+
+@keyframes exit-to-right {
+	from { transform: translateX(0%); }
+	to { transform: translateX(100%); }
+}
+
+
+
+.from-bottom {
+	animation: from-bottom 250ms ease-in;
+}
+
+.to-bottom {
+	animation: to-bottom 250ms ease-out;
+}
+
+.from-left {
+	animation: from-left 250ms ease-in;
+}
+
+.to-left {
+	animation: to-left 250ms ease-out;
+}
+
+:where(
+	.enter-from-left, 
+	.enter-from-right, 
+	.exit-to-left, 
+	.exit-to-right,
+	.fade-in-from-left,
+	.fade-in-from-right,
+	.fade-out-to-left,
+	.fade-out-to-right) {
+	--duration: 250ms;
+}
+
+.enter-from-left {
+	animation: enter-from-left var(--duration) ease-in;
+}
+
+.enter-from-right {
+	animation: enter-from-right var(--duration) ease-in;
+}
+
+.exit-to-left {
+	animation: exit-to-left var(--duration) ease-out;
+}
+
+.exit-to-right {
+	animation: exit-to-right var(--duration) ease-out;
+}
+
+.fade-in-from-right {
+	animation: enter-from-right var(--duration) ease-in, fade-in var(--duration) ease-in;
+}
+
+.fade-out-to-right {
+	animation: exit-to-right var(--duration) ease-out, fade-out var(--duration) ease-out;
+}
+
+.fade-in-from-left {
+	animation: enter-from-left var(--duration) ease-in, fade-in var(--duration) ease-in;
+}
+
+.fade-out-to-left {
+	animation: exit-to-left var(--duration) ease-out, fade-out var(--duration) ease-out;
+}
+

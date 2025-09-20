@@ -1,0 +1,159 @@
+.save.screen {
+}
+
+.save.screen > .background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	background-image: url(../images/ch1/i1_18_6.webp);
+	background-size: cover;
+	
+	opacity: .5;
+}
+
+.save.screen > .content {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	width: 100%;
+	height: 100%;
+	
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content auto min-content;
+}
+
+.save.screen > .content > header {
+	display: flex;
+}
+
+.save.screen > .content > header h1 {
+	margin: 0;
+	font-family: system-ui;
+	font-size: 48px;
+	font-weight: 100;
+}
+
+.save.screen > .content > footer {
+	display: flex;
+	justify-content: center;
+	gap: .5rem;
+	margin: 1rem;
+}
+
+.save.screen .thumbnails {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 2rem;
+	place-items: center;
+	
+	width: 100%;
+	height: 100%;
+	
+	box-sizing: border-box;
+	
+	padding: 1rem;
+	padding-bottom: 2rem;
+}
+
+.save.screen .pages > *:not(.visible) .thumbnails > button {
+	display: none;
+}
+
+.save.screen .thumbnails > button {
+	background-color: slateblue;
+	border-radius: 5px;
+	width: 100%;
+	min-width: 0px;
+	max-width: 192px;
+	aspect-ratio: 16 / 9;
+	padding: 0;
+	border: none;
+	color: inherit;
+	font-size: 1rem;
+	transition: scale 250ms ease-in-out;
+}
+
+.save.screen .thumbnails > button:hover,
+.save.screen .thumbnails > button:focus {
+	scale: 1.1 1.1;
+}
+
+.save.screen .thumbnails > button:nth-child(1) {
+	justify-self: end;
+}
+
+.save.screen .thumbnails > button:nth-child(2) {
+	justify-self: center;
+}
+
+.save.screen .thumbnails > button:nth-child(3) {
+	justify-self: start;
+}
+
+.save.screen .thumbnails > button:nth-child(4) {
+	justify-self: end;
+}
+
+.save.screen .thumbnails > button:nth-child(5) {
+	justify-self: center;
+}
+
+.save.screen .thumbnails > button:nth-child(6) {
+	justify-self: start;
+}
+
+.save.screen .thumbnails > button > label {
+	display: block;
+	position: relative;
+	top: 60%;
+	text-align: center;
+}
+
+.save.screen footer > button {
+	color: inherit;
+	background: transparent;
+	border: none;
+	text-decoration: none;
+	font-size: 1rem;
+	transition: scale 250ms ease-in-out;
+}
+
+.save.screen footer > button:hover,
+.save.screen footer > button:focus {
+	scale: 1.5 1.5;
+}
+
+@media screen and (max-width: 500px) {
+	.save.screen .thumbnails {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	.save.screen .thumbnails > div:nth-child(1) {
+		justify-self: end;
+	}
+
+	.save.screen .thumbnails > div:nth-child(2) {
+		justify-self: start;
+	}
+
+	.save.screen .thumbnails > div:nth-child(3) {
+		justify-self: end;
+	}
+
+	.save.screen .thumbnails > div:nth-child(4) {
+		justify-self: start;
+	}
+
+	.save.screen .thumbnails > div:nth-child(5) {
+		justify-self: end;
+	}
+
+	.save.screen .thumbnails > div:nth-child(6) {
+		justify-self: start;
+	}	
+}
+

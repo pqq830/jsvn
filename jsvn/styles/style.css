@@ -1,0 +1,120 @@
+:root {
+	--ui-font-family: system-ui;
+	--ui-font-size: 1rem;
+	--ui-font-weight: normal;
+	--ui-font-style: normal;
+	
+	--ui-color: white;
+	--ui-background-color: black;
+	
+	--ui-button-color: white;
+	--ui-button-background: rgba(0, 0, 0, .75);
+	--ui-button-hover-color: white;
+	--ui-button-hover-background: black;
+	
+	--font-family: serif;
+	--font-size: 1.25rem;
+	--font-weight: normal;
+	--font-style: normal;
+	
+	--color: white;
+	--background-color: black;
+	
+	--button-color: white;
+	--button-background: rgba(0, 0, 0, .75);
+	--button-hover-color: white;
+	--button-hover-background: black;
+	--button-toggle-color: black;
+	--button-toggle-background: orange;
+	
+	--dialogue-box-color: var(--color);
+	--dialogue-box-background: rgba(0, 0, 0, .75);	
+	--dialogue-box-padding: 1rem;
+	
+	--dialogue-menu-gap: 2px;
+	
+	--dialogue-menu-item-color: var(--color);
+	--dialogue-menu-item-background: rgba(0, 0, 0, .75);
+	--dialogue-menu-item-hover-color: var(--color);
+	--dialogue-menu-item-hover-background: var(--background-color);	
+	--dialogue-menu-item-width: 400px;
+	--dialogue-menu-item-padding: 1rem;
+	--dialogue-menu-item-border: none;
+}
+
+html {
+	user-select: none;
+}
+
+body {
+	margin: 0;
+	
+	width: 100vw;
+	height: 100vh;
+	
+	color: var(--color);	
+	background-color: var(--background-color);
+	
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+	font-style: var(--font-style);
+	
+	overflow: hidden;
+}
+
+main {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.screen {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 500ms ease-in-out;
+	background: black;
+	isolation: isolate;
+}
+
+.screen.visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+.screen:not(.game) {
+	font-family: var(--ui-font-family);
+	font-size: var(--ui-font-size);
+	font-weight: var(--ui-font-weight);
+	font-style: var(--ui-font-style);
+	
+	color: var(--ui-color);
+	background-color: var(--ui-background-color);
+}
+
+.no-transitions,
+.no-transitions * {
+	transition: none !important;
+}
+
+.fast-transitions * {
+	transition-duration: 100ms !important;
+	/*transition-timing-function: linear !important;*/
+}
+
+.resource-error {
+	background-color: black;
+	color: red;
+	font-family: system-ui;
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+}
+

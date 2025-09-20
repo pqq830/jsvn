@@ -1,0 +1,60 @@
+.splash.screen {
+	pointer-events: auto;
+	touch-action: auto;
+		
+}
+
+:where(.splash.screen) {
+	background: black;
+	color: white;
+	font-family: system-ui;
+	font-size: 1rem;
+	
+	
+	display: grid;
+	place-content: center;
+	
+	opacity: 0;
+	transition: opacity 500ms ease-in-out;
+}
+	
+#progressbar {
+	width: 100%;
+	height: 8px;
+}
+
+#progress {
+	width: 0%;
+	height: 100%;
+	background: red;
+}
+
+.layout {
+	width: 80vw;
+	max-width: 800px;
+	aspect-ratio: 16 / 9;
+	background-image: url(../images/splash.jpg);
+	background-size: cover;
+	border-radius: 8px;
+	display: grid;
+	grid-template-rows: 1fr min-content;
+	overflow: hidden;
+	container: layout / inline-size;
+}
+
+#message {
+	margin: .5rem 1rem .5rem 1rem;
+}
+
+h1 {
+	margin: .5rem 1rem .5rem 1rem;
+	font-size: 8cqw;
+}
+
+h1 > small {
+	font-size: 4cqw;
+}
+
+h1 > strong {
+	font-weight: 900;
+}

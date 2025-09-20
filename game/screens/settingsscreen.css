@@ -1,0 +1,71 @@
+.settings.screen {
+	overflow: hidden;
+}
+
+.settings.screen .background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	
+	background-image: url(../images/ch1/i1_18_6.webp);
+	background-size: cover;
+	
+	opacity: .5;
+}
+
+.settings.screen .content {
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	width: 100%;
+	height: 100%;
+	
+	overflow: hidden;
+	
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content 1fr;
+}
+
+.settings.screen header {
+	display: flex;
+}
+
+.settings.screen header h1 {
+	margin: 0;
+	font-size: 48px;
+	font-weight: 100;
+}
+
+.settings.screen article {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	box-sizing: border-box;
+	padding: 1rem;
+	width: 100%;
+	overflow: auto;
+}
+
+.settings.screen article h2 {
+	grid-column: span 2;
+	margin: 0;
+	margin-top: 1rem;
+	padding: 0 0 0 1rem;
+}
+.settings.screen article :where(label, div) {
+	background: rgba(0, 0, 0, .5);
+	padding: .5rem 0 0 1rem;
+}
+
+.settings.screen article:last-child :where(label, div) {
+	padding-bottom: .5rem;
+}
+
+.settings.screen article :where(input[type="range"]) {
+	width: calc(100% - 1rem);
+}
+
+.settings.screen article :where(input[type="checkbox"]) {
+	margin-right: 1rem;
+}
